@@ -1,0 +1,241 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.loginBox {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 auto 30px;
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.oauthButton {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 24px;
+  background: white;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.2s;
+}
+
+.oauthButton:hover {
+  background-color: #f8f8f8;
+}
+
+.googleIcon {
+  font-weight: bold;
+  color: #4285f4;
+  font-size: 18px;
+}
+
+.facebookIcon {
+  font-weight: bold;
+  color: #1877f2;
+  font-size: 18px;
+}
+
+.appleIcon {
+  color: #000;
+  display: flex;
+  align-items: center;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 24px 0;
+  color: #666;
+  font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.divider span {
+  padding: 0 16px;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #333;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #4285f4;
+}
+
+.passwordWrapper {
+  position: relative;
+}
+
+.showHideBtn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 13px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.forgotPassword {
+  color: #4285f4;
+  text-decoration: none;
+}
+
+.forgotPassword:hover {
+  text-decoration: underline;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 14px;
+  background-color: #ccc;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.submitBtn:hover {
+  background-color: #bbb;
+}
+
+.signupSection {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.signupSection p {
+  margin-bottom: 12px;
+  color: #666;
+  font-size: 13px;
+}
+
+.signupBtn {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 24px;
+  background: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.signupBtn:hover {
+  background-color: #f8f8f8;
+}
+
+.errorMessage {
+  background-color: #fee;
+  border: 1px solid #fcc;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 16px;
+  color: #c33;
+  font-size: 13px;
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.errorMessage {
+  background-color: #fee;
+  border: 1px solid #fcc;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 16px;
+  color: #c33;
+  font-size: 13px;
+}
+
+.successMessage {
+  background-color: #efe;
+  border: 1px solid #cfc;
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 16px;
+  color: #3c3;
+  font-size: 13px;
+  text-align: center;
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
