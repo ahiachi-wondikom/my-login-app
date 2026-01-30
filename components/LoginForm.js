@@ -6,25 +6,20 @@ import { loginStart, loginSuccess, loginFailure } from '../store/authSlice'
 import styles from './LoginForm.module.css'
 
 export default function LoginForm() {
-	// Local state for form inputs
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const [showPassword, setShowPassword] = useState(false)
 	const [rememberMe, setRememberMe] = useState(false)
 
-	// Redux hooks
 	const dispatch = useDispatch()
 	const { user, isLoading, error } = useSelector((state) => state.auth)
 
-	// Handle form submission with real API call
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 
-		// 1. Start loading state
 		dispatch(loginStart())
 
 		try {
-			// 2. Make API call to login endpoint
 			const response = await fetch('/api/auth/login', {
 				method: 'POST',
 				headers: {
@@ -37,49 +32,36 @@ export default function LoginForm() {
 				}),
 			})
 
-			// 3. Parse the JSON response
 			const data = await response.json()
 
-			// 4. Check if login was successful
 			if (response.ok) {
-				// Success! Dispatch success action with user data
 				dispatch(loginSuccess(data.user))
 
-				// Optional: Store token in localStorage if rememberMe is checked
 				if (rememberMe && data.token) {
 					localStorage.setItem('authToken', data.token)
 				}
 
-				// Optional: Redirect to dashboard or home
 				console.log('Login successful!', data.user)
-				// window.location.href = '/dashboard' // Uncomment to redirect
 			} else {
-				// Failed! Dispatch failure action with error message
 				dispatch(loginFailure(data.error || 'Login failed'))
 			}
 		} catch (err) {
-			// Network error or other errors
 			dispatch(loginFailure('Network error. Please try again.'))
 			console.error('Login error:', err)
 		}
 	}
 
-	// Handle OAuth login (Google, Facebook, Apple)
 	const handleOAuthLogin = (provider) => {
-		// Redirect to OAuth provider endpoint
 		window.location.href = `/api/auth/${provider}`
 	}
 
 	return (
 		<div className={styles.container}>
 			<div className={styles.loginBox}>
-				{/* Logo */}
 				<div className={styles.logo}></div>
 
-				{/* Title */}
 				<h2 className={styles.title}>Log in</h2>
 
-				{/* OAuth Buttons */}
 				<button
 					className={styles.oauthButton}
 					onClick={() => handleOAuthLogin('google')}
@@ -111,14 +93,11 @@ export default function LoginForm() {
 					Continue with Apple
 				</button>
 
-				{/* Divider */}
 				<div className={styles.divider}>
 					<span>OR</span>
 				</div>
 
-				{/* Form */}
 				<form onSubmit={handleSubmit}>
-					{/* Email Input */}
 					<div className={styles.inputGroup}>
 						<label>Email address or user name</label>
 						<input
@@ -131,7 +110,6 @@ export default function LoginForm() {
 						/>
 					</div>
 
-					{/* Password Input */}
 					<div className={styles.inputGroup}>
 						<label>Password</label>
 						<div className={styles.passwordWrapper}>
@@ -154,10 +132,8 @@ export default function LoginForm() {
 						</div>
 					</div>
 
-					{/* Error Message */}
 					{error && <div className={styles.errorMessage}>{error}</div>}
 
-					{/* Remember Me & Forgot Password */}
 					<div className={styles.options}>
 						<label className={styles.checkboxLabel}>
 							<input
@@ -173,7 +149,6 @@ export default function LoginForm() {
 						</a>
 					</div>
 
-					{/* Submit Button */}
 					<button
 						type='submit'
 						className={styles.submitBtn}
@@ -183,14 +158,12 @@ export default function LoginForm() {
 					</button>
 				</form>
 
-				{/* Success Message (optional) */}
 				{user && (
 					<div className={styles.successMessage}>
 						Welcome back, {user.name || user.email}!
 					</div>
 				)}
 
-				{/* Sign Up Section */}
 				<div className={styles.signupSection}>
 					<p>Dont have an account?</p>
 					<button className={styles.signupBtn} type='button'>
