@@ -165,10 +165,9 @@ export default function LoginForm() {
 				)}
 
 				<div className={styles.signupSection}>
-					<p>Dont have an account?</p>
-					<button className={styles.signupBtn} type='button'>
+					<a href='/signup' className={styles.loginLink}>
 						Sign up
-					</button>
+					</a>
 				</div>
 			</div>
 		</div>
