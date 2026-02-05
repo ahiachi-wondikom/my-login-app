@@ -22,7 +22,6 @@ export default function SignupForm() {
 	const dispatch = useDispatch()
 	const { isLoading, error } = useSelector((state) => state.auth)
 
-	// Validate a single field
 	const validateField = (fieldName, value) => {
 		try {
 			if (fieldName === 'confirmPassword') {
@@ -109,7 +108,6 @@ export default function SignupForm() {
 					localStorage.setItem('authToken', data.token)
 				}
 				console.log('Signup successful!', data.user)
-				// Redirect or show success message
 			} else {
 				dispatch(signupFailure(data.error || 'Signup failed'))
 			}

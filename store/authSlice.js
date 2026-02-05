@@ -10,7 +10,6 @@ const authSlice = createSlice({
 	name: 'auth',
 	initialState,
 	reducers: {
-		// Login actions
 		loginStart: (state) => {
 			state.isLoading = true
 			state.error = null
@@ -25,7 +24,6 @@ const authSlice = createSlice({
 			state.error = action.payload
 		},
 
-		// Signup actions (NEW)
 		signupStart: (state) => {
 			state.isLoading = true
 			state.error = null
@@ -40,7 +38,6 @@ const authSlice = createSlice({
 			state.error = action.payload
 		},
 
-		// Logout action (NEW)
 		logout: (state) => {
 			state.user = null
 			state.isLoading = false
@@ -50,7 +47,6 @@ const authSlice = createSlice({
 			}
 		},
 
-		// Clear error (NEW)
 		clearError: (state) => {
 			state.error = null
 		},
